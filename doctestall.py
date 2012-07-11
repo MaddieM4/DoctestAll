@@ -24,6 +24,8 @@ def test_recursive(mod, debug=False):
     # Accept strings, import
     if type(mod) in (str, unicode):
         mod = __import__(mod, fromlist=[""])
+    if debug:
+        print "Testing", mod.__name__
 
     # Set up counts while testing self
     (failure_count, test_count) = doctest.testmod(mod)
@@ -32,8 +34,6 @@ def test_recursive(mod, debug=False):
     if "__all__" in dir(mod):
         for child in mod.__all__:
             childname = mod.__name__+"."+child
-            if debug:
-                print "Testing", childname
             cf, ct = test_recursive(childname, debug)
             failure_count += cf
             test_count    += ct
