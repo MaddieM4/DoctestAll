@@ -44,3 +44,4 @@ def test_recursive(mod, debug=False):
 def test_toplevel(mod, debug = False):
     failures, tests = test_recursive(mod, debug)
     print("%d failures, %d tests." % (failures, tests))
+    return (failures, tests)

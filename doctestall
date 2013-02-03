@@ -27,4 +27,5 @@ if __name__ == "__main__":
     parser.add_argument('modname', nargs=1, help='Name of module to test')
 
     args = parser.parse_args()
-    test_toplevel(args.modname[0], args.l)
+    failures, tests = test_toplevel(args.modname[0], args.l)
+    quit(1 if failures else 0)
