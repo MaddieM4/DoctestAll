@@ -31,12 +31,17 @@ def test_recursive(mod, debug=False):
     (failure_count, test_count) = doctest.testmod(mod)
 
     # Test children
-    if "__all__" in dir(mod):
-        for child in mod.__all__:
-            childname = mod.__name__+"."+child
-            cf, ct = test_recursive(childname, debug)
-            failure_count += cf
-            test_count    += ct
+    children = []
+    if "__doctestall__" in dir(mod):
+        children = mod.__doctestall__
+    elif "__all__" in dir(mod):
+        children = mod.__all__
+
+    for child in children
+        childname = mod.__name__+"."+child
+        cf, ct = test_recursive(childname, debug)
+        failure_count += cf
+        test_count    += ct
 
     # Done
     return (failure_count, test_count)
