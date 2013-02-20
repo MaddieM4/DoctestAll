@@ -37,7 +37,7 @@ def test_recursive(mod, debug=False):
     elif "__all__" in dir(mod):
         children = mod.__all__
 
-    for child in children
+    for child in children:
         childname = mod.__name__+"."+child
         cf, ct = test_recursive(childname, debug)
         failure_count += cf
