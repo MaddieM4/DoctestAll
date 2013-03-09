@@ -14,7 +14,11 @@ which can be run from the command line.
 Installation
 ============
 
-DTA can be installed by entering the following commands as administrator:
+DTA can be installed via pip:
+
+    sudo pip install doctestall
+
+Or by entering the following commands as administrator:
 
     git clone git://github.com/campadrenalin/DoctestAll.git
     cd DoctestAll
